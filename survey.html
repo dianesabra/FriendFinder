@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FriendFinders</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Survey Questions</h1>
+      <h2>About You</h2>
+      <form>
+        <div class="form-group">
+          <label for="name-text">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name-input"
+            placeholder="John Doe"
+          />
+        </div>
+        <div class="form-group">
+          <label for="link-text">Link to Image</label>
+          <input type="text" class="form-control" id="link-input" />
+        </div>
+        <div>
+          Please select your option from 1 being the lowest and 5 being the
+          highest score
+        </div>
+        <div class="form-group">
+          <div class="question1">
+            <h4>Question 1</h4>
+            <label for="question1-label"
+              >Your mind is always buzzing with unexplored ideas and
+              plans.</label
+            >
+            <select class="form-control" id="question1-input">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <p></p>
+          <div class="question2">
+            <h4>Question 2</h4>
+            <label for="question2-label"
+              >Your mind is always buzzing with unexplored ideas and
+              plans.</label
+            >
+            <select class="form-control" id="question2-input">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <p></p>
+          <div class="question3">
+            <h4>Question 3</h4>
+            <label for="question3-label"
+              >Your mind is always buzzing with unexplored ideas and
+              plans.</label
+            >
+            <select class="form-control" id="question3-input">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <p></p>
+          <div class="question4">
+            <h4>Question 4</h4>
+            <label for="question4-label"
+              >Your mind is always buzzing with unexplored ideas and
+              plans.</label
+            >
+            <select class="form-control" id="question4-input">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <p></p>
+          <div class="question5">
+            <h4>Question 5</h4>
+            <label for="question5-label"
+              >Your mind is always buzzing with unexplored ideas and
+              plans.</label
+            >
+            <select class="form-control" id="question5-input">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <p></p>
+          <div class="question6">
+            <h4>Question 6</h4>
+            <label for="question6-label"
+              >Your mind is always buzzing with unexplored ideas and
+              plans.</label
+            >
+            <select class="form-control" id="question6-input">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <p></p>
+        </div>
+      </form>
+      <button
+        type="button"
+        class="btn btn-primary submit"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Submit
+      </button>
+
+      <!-- Modal -->
+      <div class="modal" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Results</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="result"></div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <p>
+            <a href="api/friendsList">API Friends List</a> |
+            <a href="#">GitHub Repo</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(".submit").on("click", function() {
+      $("#modal").modal("toggle");
+      var newFriend = {
+        name: $("#name-input")
+          .val()
+          .trim(),
+        link: $("#link-input")
+          .val()
+          .trim(),
+        qArray: [
+          $("#question1-input")
+            .val()
+            .trim(),
+          $("#question2-input")
+            .val()
+            .trim(),
+          $("#question3-input")
+            .val()
+            .trim(),
+          $("#question4-input")
+            .val()
+            .trim(),
+          $("#question5-input")
+            .val()
+            .trim(),
+          $("#question6-input")
+            .val()
+            .trim()
+        ]
+      };
+
+      var currentURL = window.location.origin;
+      $.post(currentURL + "/api/friendsList", newFriend, function(data) {
+        console.log(parseInt(data));
+        if (parseInt(data) > 0) {
+          $("#result").html(parseInt(data));
+        } else {
+          $("#result").text("No matches for you!!");
+        }
+
+        // Clear the form when submitting
+        $("#name-input").val("");
+        $("#link-input").val("");
+        $("#question1-input").val("");
+        $("#question2-input").val("");
+        $("#question3-input").val("");
+        $("#question4-input").val("");
+        $("#question5-input").val("");
+        $("#question6-input").val("");
+      });
+
+      return false;
+    });
+  </script>
+</html>
